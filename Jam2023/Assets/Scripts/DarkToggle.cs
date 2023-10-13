@@ -9,6 +9,7 @@ public class DarkToggle : MonoBehaviour
     {
         Freeze,
         Show,
+        Hide,
         // Add more values as needed
     }
 
@@ -59,6 +60,9 @@ public class DarkToggle : MonoBehaviour
                 GetComponent<Renderer>().enabled = false;
                 break;
 
+            case DarkFunctions.Hide:
+                GetComponent<Renderer>().enabled = true;
+                break;
                 // Add more cases for additional enum values
         }
     }
@@ -75,6 +79,9 @@ public class DarkToggle : MonoBehaviour
                 GetComponent<Renderer>().enabled = true;
                 break;
 
+            case DarkFunctions.Hide:
+                GetComponent<Renderer>().enabled = false;
+                break;
                 // Add more cases for additional enum values
         }
     }
