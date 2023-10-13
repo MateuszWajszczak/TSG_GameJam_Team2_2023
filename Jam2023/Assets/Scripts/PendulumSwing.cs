@@ -9,16 +9,23 @@ public class PendulumSwing : MonoBehaviour
     public DarkToggle myToggle;
 
     private Quaternion initialRotation;
+    private Quaternion targetRotation;
 
     private void Start()
     {
         initialRotation = transform.rotation;
-        myToggle = GetComponent<DarkToggle>();  
+        targetRotation = initialRotation;
+
+        initialRotation = transform.rotation; 
     }
 
     private void Update()
     {
-        startSwinging = myToggle.movementNotFrozen;
+        if (myToggle.movementFrozen == false)
+        {
+
+        }
+        startSwinging = myToggle.movementFrozen;
 
         if (startSwinging)
         {

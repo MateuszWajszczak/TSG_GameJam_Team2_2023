@@ -14,7 +14,7 @@ public class DarkToggle : MonoBehaviour
 
     public float darkLightTime = 0f;
     public bool darkMode = false;
-    public bool movementNotFrozen = true;
+    public bool movementFrozen = false;
 
     public DarkFunctions myFunction = DarkFunctions.Show;
 
@@ -52,7 +52,7 @@ public class DarkToggle : MonoBehaviour
         switch (myFunction)
         {
             case DarkFunctions.Freeze:
-                movementNotFrozen = false;
+                movementFrozen = true;
                 break;
 
             case DarkFunctions.Show:
@@ -68,7 +68,7 @@ public class DarkToggle : MonoBehaviour
         switch (myFunction)
         {
             case DarkFunctions.Freeze:
-                movementNotFrozen = false;
+                movementFrozen = false;
                 break;
 
             case DarkFunctions.Show:
