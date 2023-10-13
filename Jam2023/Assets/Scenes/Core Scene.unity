@@ -4717,7 +4717,6 @@ MonoBehaviour:
   currentChallenge: {fileID: 0}
   countdownRemaining: 0
   remainingTime: 0
-  killTimePenalty: 10
   myPlayerObject: {fileID: 1575950217}
   hubStartPosition: {fileID: 1422502383}
 --- !u!4 &1791395208 stripped
