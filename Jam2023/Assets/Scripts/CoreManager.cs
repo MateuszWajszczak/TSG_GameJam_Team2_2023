@@ -18,6 +18,8 @@ public class CoreManager : MonoBehaviour
     //UI Elements
     [SerializeField] private TextMeshProUGUI timertextMeshProUGUI;
     [SerializeField] private TextMeshProUGUI objecttextMeshProUGUI;
+    [SerializeField] private TextMeshProUGUI countdowntextMeshProUGUI;
+    [SerializeField] private GameObject countdowntImage;
 
     //Keys and Collectibles
     private Dictionary<int, bool> keyStatus = new Dictionary<int, bool>();
@@ -25,9 +27,13 @@ public class CoreManager : MonoBehaviour
 
     //Challenge Rooms
     public ChallengeObject currentChallenge = null;
+    public float countdownRemaining = 0f;
+    private float startTime;
+    private float currentTime;
 
-    //Player, set manually
+    //Player and transforms, set manually
     public GameObject myPlayerObject;
+    public Transform hubStartPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +59,16 @@ public class CoreManager : MonoBehaviour
     void Update()
     {
         UpdateBatteryText();
+
+        if (currentChallenge != null)
+        {
+            CountdownTime();
+        }
+        else
+        {
+            countdowntextMeshProUGUI.text = null;
+            countdowntImage.SetActive(false);
+        }
 
         if (playerToggle.isDark)
         {
@@ -130,15 +146,43 @@ public class CoreManager : MonoBehaviour
 
     public void BeginChallenge(ChallengeObject newChallenge)
     {
+        countdowntImage.SetActive(true);
         currentChallenge = newChallenge;
+        countdownRemaining = newChallenge.challengeTimer;
+        startTime = Time.time;
         TeleportPlayerToChallenge();
     }
 
     public void TeleportPlayerToChallenge()
     {
         myPlayerObject.SetActive(false);
-        Debug.Log("Teleporting!");
         myPlayerObject.transform.position = currentChallenge.challengeStartPosition;
         myPlayerObject.SetActive(true);
+    }
+
+    public void TeleportPlayerToHub()
+    {
+        myPlayerObject.SetActive(false);
+        myPlayerObject.transform.position = hubStartPosition.position;
+        myPlayerObject.SetActive(true);
+    }
+
+    public void CountdownTime()
+    {
+        currentTime = Time.time;
+        float remainingTime = countdownRemaining - (currentTime - startTime);
+        int seconds = Mathf.FloorToInt(remainingTime);
+        countdowntextMeshProUGUI.text = seconds.ToString();
+
+        if (seconds <= 0 )
+        {
+            ChalengeTimeout();
+        }
+    }
+
+    public void ChalengeTimeout()
+    {
+        currentChallenge = null;
+        TeleportPlayerToHub();
     }
 }
