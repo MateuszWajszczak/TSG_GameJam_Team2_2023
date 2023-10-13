@@ -52,7 +52,7 @@ public class CoreManager : MonoBehaviour
     {
         if (currentObject != null)
         {
-            objecttextMeshProUGUI.text = "Collect:" + " " + currentObject.name + "[E]";
+            objecttextMeshProUGUI.text = "Collect:" + " " + currentObject.pickUpObjectName + " [E]";
         }
         else
         {
