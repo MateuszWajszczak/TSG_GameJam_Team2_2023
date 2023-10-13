@@ -10,7 +10,7 @@ public class FlashlightSystem : MonoBehaviour
     public bool isDark;
     public float coneAngle = 45f;
     public float darkLightAddValue = 0.5f;
-    [SerializeField] CoreManager myManager;
+    [SerializeField] private CoreManager myManager;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +25,7 @@ public class FlashlightSystem : MonoBehaviour
     {
         if(isDark)
         {
-            PerformConicalRaycast();
+            PerformConicalRaycastFlashlight();
             if (!darkLight.activeSelf)
             {
                 brightLight.SetActive(false);
@@ -58,7 +58,7 @@ public class FlashlightSystem : MonoBehaviour
         isDark = !isDark;
     }
 
-    private void PerformConicalRaycast()
+    private void PerformConicalRaycastFlashlight()
     {
         {
             Vector3 raycastOrigin = darkLight.transform.position;

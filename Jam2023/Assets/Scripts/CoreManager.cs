@@ -11,21 +11,25 @@ public class CoreManager : MonoBehaviour
     public float darkBatteryCurrent;
     public float batteryConsumption;
     public float batteryRecharge;
-    public TextMeshProUGUI textMeshProUGUI;
+
+    public PickUpObject currentObject = null;
+
+    //UI Elements
+    [SerializeField] private TextMeshProUGUI timertextMeshProUGUI;
+    [SerializeField] private TextMeshProUGUI objecttextMeshProUGUI; 
 
     // Start is called before the first frame update
     void Start()
     {
         playerToggle = FindObjectOfType<FlashlightSystem>();
+        UpdatePickUpObjectText();
         darkBatteryCurrent = darkBatteryStart;
     }
 
     // Update is called once per frame
     void Update()
     {
-        int percentage = Mathf.RoundToInt((darkBatteryCurrent / darkBatteryStart) * 100);
-        textMeshProUGUI.text = percentage.ToString() + "%";
-
+        UpdateBatteryText();
 
         if (playerToggle.isDark)
         {
@@ -42,5 +46,23 @@ public class CoreManager : MonoBehaviour
                 darkBatteryCurrent += batteryRecharge * Time.deltaTime;
             }
         }
+    }
+
+    public void UpdatePickUpObjectText()
+    {
+        if (currentObject != null)
+        {
+            objecttextMeshProUGUI.text = "Collect:" + " " + currentObject.name + "[E]";
+        }
+        else
+        {
+            objecttextMeshProUGUI.text = null;
+        }
+    }
+
+    public void UpdateBatteryText()
+    {
+        int percentage = Mathf.RoundToInt((darkBatteryCurrent / darkBatteryStart) * 100);
+        timertextMeshProUGUI.text = percentage.ToString() + "%";
     }
 }
