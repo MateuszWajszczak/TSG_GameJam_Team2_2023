@@ -4409,7 +4409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1362068688454548021, guid: e69dccbea64be3c40879913c3e48fcd2, type: 3}
       propertyPath: swingSpeed
-      value: 3
+      value: 3.4
       objectReference: {fileID: 0}
     - target: {fileID: 1362068688454548021, guid: e69dccbea64be3c40879913c3e48fcd2, type: 3}
       propertyPath: maxSwingAngle
@@ -7007,7 +7007,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1362068688454548021, guid: e69dccbea64be3c40879913c3e48fcd2, type: 3}
       propertyPath: swingSpeed
-      value: 3
+      value: 3.1
       objectReference: {fileID: 0}
     - target: {fileID: 1362068688454548021, guid: e69dccbea64be3c40879913c3e48fcd2, type: 3}
       propertyPath: maxSwingAngle
@@ -17106,7 +17106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1362068688454548021, guid: e69dccbea64be3c40879913c3e48fcd2, type: 3}
       propertyPath: swingSpeed
-      value: 3
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 1362068688454548021, guid: e69dccbea64be3c40879913c3e48fcd2, type: 3}
       propertyPath: maxSwingAngle
@@ -17744,7 +17744,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1362068688454548021, guid: e69dccbea64be3c40879913c3e48fcd2, type: 3}
       propertyPath: swingSpeed
-      value: 3
+      value: 3.7
       objectReference: {fileID: 0}
     - target: {fileID: 1362068688454548021, guid: e69dccbea64be3c40879913c3e48fcd2, type: 3}
       propertyPath: maxSwingAngle
@@ -19667,7 +19667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1362068688454548021, guid: e69dccbea64be3c40879913c3e48fcd2, type: 3}
       propertyPath: swingSpeed
-      value: 3
+      value: 3.6
       objectReference: {fileID: 0}
     - target: {fileID: 1362068688454548021, guid: e69dccbea64be3c40879913c3e48fcd2, type: 3}
       propertyPath: maxSwingAngle
@@ -22064,7 +22064,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1362068688454548021, guid: e69dccbea64be3c40879913c3e48fcd2, type: 3}
       propertyPath: swingSpeed
-      value: 3
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 1362068688454548021, guid: e69dccbea64be3c40879913c3e48fcd2, type: 3}
       propertyPath: maxSwingAngle
@@ -26366,7 +26366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1362068688454548021, guid: e69dccbea64be3c40879913c3e48fcd2, type: 3}
       propertyPath: swingSpeed
-      value: 3
+      value: 3.1
       objectReference: {fileID: 0}
     - target: {fileID: 1362068688454548021, guid: e69dccbea64be3c40879913c3e48fcd2, type: 3}
       propertyPath: maxSwingAngle
@@ -34246,7 +34246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1362068688454548021, guid: e69dccbea64be3c40879913c3e48fcd2, type: 3}
       propertyPath: swingSpeed
-      value: 3
+      value: 3.3
       objectReference: {fileID: 0}
     - target: {fileID: 1362068688454548021, guid: e69dccbea64be3c40879913c3e48fcd2, type: 3}
       propertyPath: maxSwingAngle
