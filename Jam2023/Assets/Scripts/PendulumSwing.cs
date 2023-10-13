@@ -21,16 +21,17 @@ public class PendulumSwing : MonoBehaviour
 
     private void Update()
     {
+        startSwinging = myToggle.movementFrozen;
+
         if (myToggle.movementFrozen == false)
         {
-
+            targetRotation = transform.rotation;
         }
-        startSwinging = myToggle.movementFrozen;
 
         if (startSwinging)
         {
-            float angle = startAngle + maxSwingAngle * Mathf.Sin(swingSpeed * Time.time);
-            transform.rotation = initialRotation * Quaternion.Euler(0, 0, angle);
+            targetRotation = initialRotation * Quaternion.Euler(0, 0, startAngle + maxSwingAngle * Mathf.Sin(swingSpeed * Time.time));
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * swingSpeed);
         }
     }
 
