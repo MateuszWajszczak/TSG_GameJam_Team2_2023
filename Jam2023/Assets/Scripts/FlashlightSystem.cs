@@ -8,6 +8,8 @@ public class FlashlightSystem : MonoBehaviour
     public GameObject darkLight;
 
     public bool isDark;
+    public float coneAngle = 45f;
+    public float darkLightAddValue = 0.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,7 @@ public class FlashlightSystem : MonoBehaviour
     {
         if(isDark)
         {
+            PerformConicalRaycast();
             if (!darkLight.activeSelf)
             {
                 brightLight.SetActive(false);
@@ -44,5 +47,31 @@ public class FlashlightSystem : MonoBehaviour
     private void ToggleFlashlightMode()
     {
         isDark = !isDark;
+    }
+
+    private void PerformConicalRaycast()
+    {
+        {
+            Vector3 raycastOrigin = darkLight.transform.position;
+
+            for (float angle = -coneAngle / 2; angle <= coneAngle / 2; angle += 1f) // Adjust the step size for the desired cone granularity
+            {
+                Vector3 raycastDirection = Quaternion.Euler(0, angle, 0) * darkLight.transform.forward;
+
+                float raycastDistance = darkLight.GetComponent<Light>().range;
+
+                RaycastHit hit;
+                if (Physics.Raycast(raycastOrigin, raycastDirection, out hit, raycastDistance))
+                {
+                    DarkToggle darkToggleComponent = hit.collider.GetComponent<DarkToggle>();
+
+                    if (darkToggleComponent != null)
+                    {
+                        // The "darkToggle" component exists on the object, so you can access its public members
+                        darkToggleComponent.darkLightTime = darkLightAddValue;
+                    }
+                }
+            }
+        }
     }
 }
