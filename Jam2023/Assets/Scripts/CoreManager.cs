@@ -22,6 +22,12 @@ public class CoreManager : MonoBehaviour
     private Dictionary<int, bool> keyStatus = new Dictionary<int, bool>();
     private Dictionary<int, bool> collectibleStatus = new Dictionary<int, bool>();
 
+    //Challenge Rooms
+    public ChallengeObject currentChallenge = null;
+
+    //Player, set manually
+    public GameObject myPlayerObject;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -106,5 +112,19 @@ public class CoreManager : MonoBehaviour
     public Dictionary<int, bool> GetCollectibleStatusDictionary()
     {
         return collectibleStatus;
+    }
+
+    public void BeginChallenge(ChallengeObject newChallenge)
+    {
+        currentChallenge = newChallenge;
+        TeleportPlayerToChallenge();
+    }
+
+    public void TeleportPlayerToChallenge()
+    {
+        myPlayerObject.SetActive(false);
+        Debug.Log("Teleporting!");
+        myPlayerObject.transform.position = currentChallenge.challengeStartPosition;
+        myPlayerObject.SetActive(true);
     }
 }

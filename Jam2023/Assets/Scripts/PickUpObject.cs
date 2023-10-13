@@ -10,15 +10,20 @@ public class PickUpObject : MonoBehaviour
         Key,
         Button,
         Collectible,
+        Challenge,
         // Add more values as needed
     }
 
+    //Property of all interactives
     public float currentPickUpTime = 0f;
     public float maxPickUpTime = 0.1f;
     public bool pickUpAvailalbe;
     public string pickUpObjectName;
+
+    //Indexes for Different Objects
     public int keyIndex;
     public int collectibleIndex;
+    public GameObject targetChallenge;
 
     private CoreManager myManager;
 
@@ -28,6 +33,8 @@ public class PickUpObject : MonoBehaviour
     {
         currentPickUpTime = 0f;
         pickUpAvailalbe = false;
+
+        //Clear to avoid bugs
         myManager = FindObjectOfType<CoreManager>();   
         if (myObjectFunction != ObjectFunctions.Key )
         {
@@ -36,6 +43,10 @@ public class PickUpObject : MonoBehaviour
         if (myObjectFunction != ObjectFunctions.Collectible)
         {
             collectibleIndex = 0;
+        }
+        if (myObjectFunction != ObjectFunctions.Challenge)
+        {
+            targetChallenge = null;
         }
     }
 
@@ -82,7 +93,8 @@ public class PickUpObject : MonoBehaviour
                 Destroy(this.gameObject);
                 break;
 
-            case ObjectFunctions.Button:
+            case ObjectFunctions.Challenge:
+                myManager.BeginChallenge(targetChallenge.GetComponent<ChallengeObject>());
                 break;
 
             case ObjectFunctions.Collectible:
