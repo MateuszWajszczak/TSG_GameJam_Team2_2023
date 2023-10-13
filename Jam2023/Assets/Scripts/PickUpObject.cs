@@ -27,7 +27,7 @@ public class PickUpObject : MonoBehaviour
 
     private CoreManager myManager;
 
-    [SerializeField] private ObjectFunctions myObjectFunction = ObjectFunctions.Key;
+    public ObjectFunctions myObjectFunction = ObjectFunctions.Key;
 
     private void Start()
     {

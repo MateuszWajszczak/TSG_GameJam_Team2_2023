@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using static PickUpObject;
 
 public class CoreManager : MonoBehaviour
 {
@@ -74,7 +75,20 @@ public class CoreManager : MonoBehaviour
     {
         if (currentObject != null)
         {
-            objecttextMeshProUGUI.text = "Collect:" + " " + currentObject.pickUpObjectName + " [E]";
+            switch (currentObject.myObjectFunction)
+            {
+                case ObjectFunctions.Key:
+                    objecttextMeshProUGUI.text = "Collect:" + " " + currentObject.pickUpObjectName + " [E]";
+                    break;
+
+                case ObjectFunctions.Challenge:
+                    objecttextMeshProUGUI.text = "Enter:" + " " + currentObject.pickUpObjectName + " [E]";
+                    break;
+
+                case ObjectFunctions.Collectible:
+                    objecttextMeshProUGUI.text = "Collect:" + " " + currentObject.pickUpObjectName + " [E]";
+                    break;
+            }
         }
         else
         {
