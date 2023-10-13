@@ -5,17 +5,49 @@ using UnityEngine;
 
 public class PickUpObject : MonoBehaviour
 {
+    public enum ObjectFunctions
+    {
+        Key,
+        Button,
+        Collectible,
+        Challenge,
+        // Add more values as needed
+    }
+
+    //Property of all interactives
     public float currentPickUpTime = 0f;
     public float maxPickUpTime = 0.1f;
     public bool pickUpAvailalbe;
     public string pickUpObjectName;
+
+    //Indexes for Different Objects
+    public int keyIndex;
+    public int collectibleIndex;
+    public GameObject targetChallenge;
+
     private CoreManager myManager;
+
+    [SerializeField] private ObjectFunctions myObjectFunction = ObjectFunctions.Key;
 
     private void Start()
     {
         currentPickUpTime = 0f;
         pickUpAvailalbe = false;
-        myManager = FindObjectOfType<CoreManager>();    
+
+        //Clear to avoid bugs
+        myManager = FindObjectOfType<CoreManager>();   
+        if (myObjectFunction != ObjectFunctions.Key )
+        {
+            keyIndex = 0;
+        }
+        if (myObjectFunction != ObjectFunctions.Collectible)
+        {
+            collectibleIndex = 0;
+        }
+        if (myObjectFunction != ObjectFunctions.Challenge)
+        {
+            targetChallenge = null;
+        }
     }
 
     private void Update()
@@ -49,5 +81,27 @@ public class PickUpObject : MonoBehaviour
     {
         myManager.currentObject = null;
         myManager.UpdatePickUpObjectText();
+    }
+
+    public void InteractWithObject()
+    {
+        switch (myObjectFunction)
+        {
+            case ObjectFunctions.Key:
+                myManager.CollectKey(keyIndex);
+                UpdateTextNotAvailable();
+                Destroy(this.gameObject);
+                break;
+
+            case ObjectFunctions.Challenge:
+                myManager.BeginChallenge(targetChallenge.GetComponent<ChallengeObject>());
+                break;
+
+            case ObjectFunctions.Collectible:
+                myManager.CollectColectible(collectibleIndex);
+                UpdateTextNotAvailable();
+                Destroy(this.gameObject);
+                break;
+        }
     }
 }

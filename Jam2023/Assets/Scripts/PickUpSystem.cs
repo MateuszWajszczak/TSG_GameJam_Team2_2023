@@ -10,12 +10,25 @@ public class PickUpSystem : MonoBehaviour
     [SerializeField] private CoreManager myManager;
     public bool pickUpEnabled = true;
 
+    private void Start()
+    {
+        myManager = FindObjectOfType<CoreManager>();
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (pickUpEnabled)
         {
             PerformConicalRaycastPickUp();
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (myManager.currentObject != null)
+            {
+                myManager.currentObject.InteractWithObject();
+            }
         }
     }
 
