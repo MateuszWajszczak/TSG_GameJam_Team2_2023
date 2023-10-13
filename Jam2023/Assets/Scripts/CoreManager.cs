@@ -30,6 +30,7 @@ public class CoreManager : MonoBehaviour
     public float countdownRemaining = 0f;
     private float startTime;
     private float currentTime;
+    public float remainingTime;
 
     //Player and transforms, set manually
     public GameObject myPlayerObject;
@@ -170,19 +171,31 @@ public class CoreManager : MonoBehaviour
     public void CountdownTime()
     {
         currentTime = Time.time;
-        float remainingTime = countdownRemaining - (currentTime - startTime);
+        remainingTime = countdownRemaining - (currentTime - startTime);
         int seconds = Mathf.FloorToInt(remainingTime);
         countdowntextMeshProUGUI.text = seconds.ToString();
 
         if (seconds <= 0 )
         {
-            ChalengeTimeout();
+            ChallengeTimeout();
         }
     }
 
-    public void ChalengeTimeout()
+    public void ChallengeTimeout()
     {
         currentChallenge = null;
         TeleportPlayerToHub();
+    }
+
+    public void KillPlayerInChallenge()
+    {
+        if (currentChallenge != null)
+        {
+            TeleportPlayerToChallenge();
+        }
+        else
+        {
+            TeleportPlayerToHub();
+        }
     }
 }
