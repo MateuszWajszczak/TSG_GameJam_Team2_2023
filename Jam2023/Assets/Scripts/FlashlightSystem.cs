@@ -10,12 +10,14 @@ public class FlashlightSystem : MonoBehaviour
     public bool isDark;
     public float coneAngle = 45f;
     public float darkLightAddValue = 0.5f;
+    [SerializeField] CoreManager myManager;
 
     // Start is called before the first frame update
     void Start()
     {
         brightLight.SetActive(true);
         darkLight.SetActive(false);
+        myManager = FindObjectOfType<CoreManager>();
     }
 
     // Update is called once per frame
@@ -41,10 +43,17 @@ public class FlashlightSystem : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            ToggleFlashlightMode();
+            if (isDark)
+            {
+                ToggleFlashlightMode();
+            }
+            else if ((myManager.darkBatteryCurrent >= 0) && (!isDark))
+            {
+                ToggleFlashlightMode();
+            }
         }
     }
-    private void ToggleFlashlightMode()
+    public void ToggleFlashlightMode()
     {
         isDark = !isDark;
     }
