@@ -1730,7 +1730,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 43c2a4350386afe46b5eb7112f6d3120, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2243,7 +2243,7 @@ GameObject:
   - component: {fileID: 943579869}
   - component: {fileID: 943579868}
   m_Layer: 5
-  m_Name: Score Text
+  m_Name: Time Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3886,6 +3886,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4746249394046780, guid: 8cafb8859908fca4ea9e365b05144e2f, type: 3}
   m_PrefabInstance: {fileID: 1406334446}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1422502382
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1422502383}
+  m_Layer: 0
+  m_Name: Hub Start Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1422502383
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422502382}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.5000004, z: -0, w: 0.8660252}
+  m_LocalPosition: {x: -1.5, y: 6, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -60, z: 0}
 --- !u!1001 &1485193469
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4050,7 +4081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e0e770ff6bd025409afa41a52d447a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  challengeTimer: 60
+  challengeTimer: 10
   challengeStartPosition: {x: 0, y: 0, z: 0}
   requiresKeys: 0
 --- !u!1 &1575950217 stripped
@@ -4561,8 +4592,12 @@ MonoBehaviour:
   currentObject: {fileID: 0}
   timertextMeshProUGUI: {fileID: 1053475428}
   objecttextMeshProUGUI: {fileID: 544996146}
+  countdowntextMeshProUGUI: {fileID: 943579868}
+  countdowntImage: {fileID: 1664351427}
   currentChallenge: {fileID: 0}
+  countdownRemaining: 0
   myPlayerObject: {fileID: 1575950217}
+  hubStartPosition: {fileID: 1422502383}
 --- !u!4 &1791395208 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8385952260079066319, guid: 746a6639e6bf55242acfbe9585983164, type: 3}
@@ -4598,7 +4633,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6809233608549538414, guid: febdf8feddcc48f46a388a53aa70a988, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.75
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6809233608549538414, guid: febdf8feddcc48f46a388a53aa70a988, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4606,7 +4641,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6809233608549538414, guid: febdf8feddcc48f46a388a53aa70a988, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -23.75
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6809233608549538414, guid: febdf8feddcc48f46a388a53aa70a988, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5630,6 +5665,7 @@ SceneRoots:
   - {fileID: 276252744}
   - {fileID: 438154737}
   - {fileID: 7771027019854774316}
+  - {fileID: 1422502383}
   - {fileID: 1790721587}
   - {fileID: 247854205}
   - {fileID: 387924801}
