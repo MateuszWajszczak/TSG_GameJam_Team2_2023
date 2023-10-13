@@ -97,4 +97,14 @@ public class CoreManager : MonoBehaviour
             collectibleStatus[collectibleID] = true; // Set the status to collected
         }
     }
+
+    public Dictionary<int, bool> GetKeyStatusDictionary()
+    {
+        return keyStatus;
+    }
+
+    public Dictionary<int, bool> GetCollectibleStatusDictionary()
+    {
+        return collectibleStatus;
+    }
 }

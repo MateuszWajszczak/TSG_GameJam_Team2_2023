@@ -9,6 +9,7 @@ public class PickUpObject : MonoBehaviour
     {
         Key,
         Button,
+        Collectible,
         // Add more values as needed
     }
 
@@ -17,6 +18,7 @@ public class PickUpObject : MonoBehaviour
     public bool pickUpAvailalbe;
     public string pickUpObjectName;
     public int keyIndex;
+    public int collectibleIndex;
 
     private CoreManager myManager;
 
@@ -30,6 +32,10 @@ public class PickUpObject : MonoBehaviour
         if (myObjectFunction != ObjectFunctions.Key )
         {
             keyIndex = 0;
+        }
+        if (myObjectFunction != ObjectFunctions.Collectible)
+        {
+            collectibleIndex = 0;
         }
     }
 
@@ -71,12 +77,19 @@ public class PickUpObject : MonoBehaviour
         switch (myObjectFunction)
         {
             case ObjectFunctions.Key:
+                myManager.CollectKey(keyIndex);
+                UpdateTextNotAvailable();
+                Destroy(this.gameObject);
                 break;
 
             case ObjectFunctions.Button:
                 break;
 
-                // Add more cases for additional enum values
+            case ObjectFunctions.Collectible:
+                myManager.CollectColectible(collectibleIndex);
+                UpdateTextNotAvailable();
+                Destroy(this.gameObject);
+                break;
         }
     }
 }
