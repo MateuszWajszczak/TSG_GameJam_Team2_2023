@@ -45,6 +45,7 @@ public class CoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = false;
         playerToggle = FindObjectOfType<FlashlightSystem>();
         UpdatePickUpObjectText();
         darkBatteryCurrent = darkBatteryStart;
@@ -274,6 +275,8 @@ public class CoreManager : MonoBehaviour
 
     public void winGame()
     {
+        Cursor.visible = true;
+        SceneManager.LoadScene(2);
         Debug.Log("You win!");
     }
 }
