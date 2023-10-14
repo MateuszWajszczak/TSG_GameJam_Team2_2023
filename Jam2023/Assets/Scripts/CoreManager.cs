@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using static PickUpObject;
+using UnityEngine.SceneManagement;
 
 public class CoreManager : MonoBehaviour
 {
@@ -103,6 +104,10 @@ public class CoreManager : MonoBehaviour
             {
                 darkBatteryCurrent += batteryRecharge * Time.deltaTime;
             }
+        }
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
         }
     }
 
