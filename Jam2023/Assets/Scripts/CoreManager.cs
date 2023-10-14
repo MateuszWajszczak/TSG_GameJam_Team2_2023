@@ -109,6 +109,10 @@ public class CoreManager : MonoBehaviour
                     objecttextMeshProUGUI.text = "Enter:" + " " + currentObject.pickUpObjectName + " [E]";
                     break;
 
+                case ObjectFunctions.Button:
+                    objecttextMeshProUGUI.text = "Press:" + " " + currentObject.pickUpObjectName + " [E]";
+                    break;
+
                 case ObjectFunctions.Collectible:
                     objecttextMeshProUGUI.text = "Collect:" + " " + currentObject.pickUpObjectName + " [E]";
                     break;

@@ -28,6 +28,7 @@ public class PickUpObject : MonoBehaviour
     public int keyIndex;
     public int collectibleIndex;
     public GameObject targetChallenge;
+    public GameObject targetObjectForButton;
 
     private CoreManager myManager;
 
@@ -100,6 +101,11 @@ public class PickUpObject : MonoBehaviour
                 UpdateTextNotAvailable();
                 Destroy(this.gameObject);
                 myManager.TeleportPlayerToHub();
+                myManager.currentChallenge = null;
+                break;
+
+            case ObjectFunctions.Button:
+                targetObjectForButton.SetActive(false);
                 break;
 
             case ObjectFunctions.Challenge:
