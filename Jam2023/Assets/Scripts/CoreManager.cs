@@ -60,6 +60,17 @@ public class CoreManager : MonoBehaviour
         collectibleStatus.Add(2, false);
         collectibleStatus.Add(3, false);
         collectibleStatus.Add(4, false);
+        collectibleStatus.Add(5, false);
+        collectibleStatus.Add(6, false);
+        collectibleStatus.Add(7, false);
+        collectibleStatus.Add(8, false);
+        collectibleStatus.Add(9, false);
+        collectibleStatus.Add(10, false);
+        collectibleStatus.Add(11, false);
+        collectibleStatus.Add(12, false);
+        collectibleStatus.Add(13, false);
+        collectibleStatus.Add(14, false);
+        collectibleStatus.Add(15, false);
     }
 
     // Update is called once per frame
