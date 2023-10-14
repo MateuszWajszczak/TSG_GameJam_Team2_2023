@@ -117,6 +117,10 @@ public class CoreManager : MonoBehaviour
                     objecttextMeshProUGUI.text = "Collect:" + " " + currentObject.pickUpObjectName + " [E]";
                     break;
 
+                case ObjectFunctions.MazePortal:
+                    objecttextMeshProUGUI.text = "Use the portal? [E]";
+                    break;
+
                 case ObjectFunctions.Flashlight:
                     objecttextMeshProUGUI.text = "Collect:" + " " + currentObject.pickUpObjectName + " [E]";
                     break;
@@ -205,6 +209,13 @@ public class CoreManager : MonoBehaviour
     {
         myPlayerObject.SetActive(false);
         myPlayerObject.transform.position = hubStartPosition.position;
+        myPlayerObject.SetActive(true);
+    }
+
+    public void TeleportPlayerMazePortal(Transform newPosition)
+    {
+        myPlayerObject.SetActive(false);
+        myPlayerObject.transform.position = newPosition.position;
         myPlayerObject.SetActive(true);
     }
 

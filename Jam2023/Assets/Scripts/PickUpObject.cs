@@ -14,6 +14,7 @@ public class PickUpObject : MonoBehaviour
         Challenge,
         Flashlight,
         FinalDoor,
+        MazePortal
         // Add more values as needed
     }
 
@@ -29,6 +30,7 @@ public class PickUpObject : MonoBehaviour
     public int collectibleIndex;
     public GameObject targetChallenge;
     public GameObject targetObjectForButton;
+    public Transform teleporterTarget;
 
     private CoreManager myManager;
 
@@ -123,6 +125,10 @@ public class PickUpObject : MonoBehaviour
                 myManager.EnableFlashlight();
                 UpdateTextNotAvailable();
                 Destroy(this.gameObject);
+                break;
+
+            case ObjectFunctions.MazePortal:
+                myManager.TeleportPlayerMazePortal(teleporterTarget);
                 break;
 
             case ObjectFunctions.FinalDoor:
