@@ -110,8 +110,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.019995866, b: 0, a: 1}
-  m_Intensity: 20
-  m_Range: 20
+  m_Intensity: 70
+  m_Range: 150
   m_SpotAngle: 40
   m_InnerSpotAngle: 4
   m_CookieSize: 10
@@ -228,8 +228,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.5568628, g: 0.4627451, b: 0.18039216, a: 1}
-  m_Intensity: 20
-  m_Range: 20
+  m_Intensity: 70
+  m_Range: 150
   m_SpotAngle: 40
   m_InnerSpotAngle: 4
   m_CookieSize: 10
@@ -331,7 +331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalRotation.y
@@ -441,7 +441,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1451092011216044, guid: fc95390a1ed00574799152f601af7cd7, type: 3}
       propertyPath: m_Name
-      value: SM_Prop_Torch_01
+      value: Flashlight
+      objectReference: {fileID: 0}
+    - target: {fileID: 1451092011216044, guid: fc95390a1ed00574799152f601af7cd7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4983214869480342, guid: fc95390a1ed00574799152f601af7cd7, type: 3}
       propertyPath: m_LocalScale.x
@@ -531,6 +535,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6809233608549538414}
     m_Modifications:
+    - target: {fileID: 5393215578589016642, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 5393215578589016655, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -668,8 +676,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickUpOriginPoint: {fileID: 3399288491170838120}
-  pickupAngle: 45
-  pickupRange: 2
+  pickupAngle: 60
+  pickupRange: 3
   myManager: {fileID: 0}
   pickUpEnabled: 1
 --- !u!4 &2245666276868596748 stripped
