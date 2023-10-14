@@ -93,6 +93,7 @@ public class PickUpObject : MonoBehaviour
                 myManager.CollectKey(keyIndex);
                 UpdateTextNotAvailable();
                 Destroy(this.gameObject);
+                myManager.TeleportPlayerToHub();
                 break;
 
             case ObjectFunctions.Challenge:
