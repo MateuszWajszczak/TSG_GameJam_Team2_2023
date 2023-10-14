@@ -111,6 +111,26 @@ public class CoreManager : MonoBehaviour
                 case ObjectFunctions.Flashlight:
                     objecttextMeshProUGUI.text = "Collect:" + " " + currentObject.pickUpObjectName + " [E]";
                     break;
+                case ObjectFunctions.FinalDoor:
+                    int keys = 0;
+                    if (keyStatus.ContainsKey(1) && keyStatus[1] == true)
+                    {
+                        keys += 1;
+                    }
+                    if (keyStatus.ContainsKey(2) && keyStatus[2] == true)
+                    {
+                        keys += 1;
+                    }
+                    if (keyStatus.ContainsKey(3) && keyStatus[3] == true)
+                    {
+                        keys += 1;
+                    }
+                    if (keyStatus.ContainsKey(4) && keyStatus[4] == true)
+                    {
+                        keys += 1;
+                    }
+                    objecttextMeshProUGUI.text = "You have: " + keys.ToString() + " keys out of 4." + " [E]";
+                    break;
             }
         }
         else
@@ -209,5 +229,10 @@ public class CoreManager : MonoBehaviour
     {
         flashlightCollected = true;
         myPlayerFlashlight.SetActive(true);
+    }
+
+    public void winGame()
+    {
+        Debug.Log("You win!");
     }
 }
