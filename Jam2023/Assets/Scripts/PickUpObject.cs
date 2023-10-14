@@ -92,6 +92,14 @@ public class PickUpObject : MonoBehaviour
 
     public void InteractWithObject()
     {
+        AudioSource audioSource = GetComponent<AudioSource>();
+
+        if (audioSource != null)
+        {
+            // An AudioSource component is found on the object
+            audioSource.PlayOneShot(audioSource.clip);
+        }
+
         switch (myObjectFunction)
         {
             case ObjectFunctions.Key:
