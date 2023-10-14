@@ -6,7 +6,6 @@ public class ChallengeObject : MonoBehaviour
 {
     public float challengeTimer = 60f;
     public Vector3 challengeStartPosition;
-    public bool requiresKeys = false;
 
     private void Start()
     {

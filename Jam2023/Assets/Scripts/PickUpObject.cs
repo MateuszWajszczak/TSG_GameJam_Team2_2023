@@ -12,6 +12,7 @@ public class PickUpObject : MonoBehaviour
         Collectible,
         Challenge,
         Flashlight,
+        FinalDoor,
         // Add more values as needed
     }
 
@@ -103,10 +104,35 @@ public class PickUpObject : MonoBehaviour
                 UpdateTextNotAvailable();
                 Destroy(this.gameObject);
                 break;
+
             case ObjectFunctions.Flashlight:
                 myManager.EnableFlashlight();
                 UpdateTextNotAvailable();
                 Destroy(this.gameObject);
+                break;
+
+            case ObjectFunctions.FinalDoor:
+                int keys = 0;
+                if (myManager.keyStatus.ContainsKey(1) && myManager.keyStatus[1] == true)
+                {
+                    keys += 1;
+                }
+                if (myManager.keyStatus.ContainsKey(2) && myManager.keyStatus[2] == true)
+                {
+                    keys += 1;
+                }  
+                if (myManager.keyStatus.ContainsKey(3) && myManager.keyStatus[3] == true)
+                {
+                    keys += 1;
+                }
+                if (myManager.keyStatus.ContainsKey(4) && myManager.keyStatus[4] == true)
+                {
+                    keys += 1;
+                }
+                if (keys >= 4)
+                {
+                    myManager.winGame();
+                }
                 break;
         }
     }
