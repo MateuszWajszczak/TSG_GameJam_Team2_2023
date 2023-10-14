@@ -868,6 +868,7 @@ MonoBehaviour:
   maxPickUpTime: 0.1
   pickUpAvailalbe: 0
   pickUpObjectName: Key 1
+  collectibleScoreValue: 0
   keyIndex: 1
   collectibleIndex: 0
   targetChallenge: {fileID: 0}
@@ -2034,6 +2035,7 @@ MonoBehaviour:
   maxPickUpTime: 0.1
   pickUpAvailalbe: 0
   pickUpObjectName: Challenge 1
+  collectibleScoreValue: 0
   keyIndex: 0
   collectibleIndex: 0
   targetChallenge: {fileID: 1521425198}
@@ -3180,6 +3182,7 @@ MonoBehaviour:
   maxPickUpTime: 0.1
   pickUpAvailalbe: 0
   pickUpObjectName: Cube 3
+  collectibleScoreValue: 0
   keyIndex: 0
   collectibleIndex: 3
   targetChallenge: {fileID: 0}
@@ -4844,9 +4847,11 @@ MonoBehaviour:
   batteryConsumption: 10
   batteryRecharge: 10
   currentObject: {fileID: 0}
+  playerScore: 0
   timertextMeshProUGUI: {fileID: 1053475428}
   objecttextMeshProUGUI: {fileID: 544996146}
   countdowntextMeshProUGUI: {fileID: 943579868}
+  scoretextMeshProUGUI: {fileID: 1024792193}
   countdowntImage: {fileID: 1664351427}
   currentChallenge: {fileID: 0}
   countdownRemaining: 0
