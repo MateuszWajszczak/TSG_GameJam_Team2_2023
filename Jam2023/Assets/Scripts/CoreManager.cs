@@ -16,10 +16,13 @@ public class CoreManager : MonoBehaviour
 
     public PickUpObject currentObject = null;
 
+    public int playerScore = 0;
+
     //UI Elements
     [SerializeField] private TextMeshProUGUI timertextMeshProUGUI;
     [SerializeField] private TextMeshProUGUI objecttextMeshProUGUI;
     [SerializeField] private TextMeshProUGUI countdowntextMeshProUGUI;
+    [SerializeField] private TextMeshProUGUI scoretextMeshProUGUI;
     [SerializeField] private GameObject countdowntImage;
 
     //Keys and Collectibles
@@ -44,6 +47,7 @@ public class CoreManager : MonoBehaviour
         playerToggle = FindObjectOfType<FlashlightSystem>();
         UpdatePickUpObjectText();
         darkBatteryCurrent = darkBatteryStart;
+        playerScore = 0;
 
         //Keys
         keyStatus.Add(1, false); 
@@ -62,6 +66,7 @@ public class CoreManager : MonoBehaviour
     void Update()
     {
         UpdateBatteryText();
+        UpdateScoreText();
 
         if (currentChallenge != null)
         {
@@ -143,6 +148,11 @@ public class CoreManager : MonoBehaviour
     {
         int percentage = Mathf.RoundToInt((darkBatteryCurrent / darkBatteryStart) * 100);
         timertextMeshProUGUI.text = percentage.ToString() + "%";
+    }
+
+    public void UpdateScoreText()
+    {
+        scoretextMeshProUGUI.text = playerScore.ToString();
     }
 
     public void CollectKey(int keyID)

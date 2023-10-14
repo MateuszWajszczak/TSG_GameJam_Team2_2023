@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PickUpObject : MonoBehaviour
@@ -21,6 +22,7 @@ public class PickUpObject : MonoBehaviour
     public float maxPickUpTime = 0.1f;
     public bool pickUpAvailalbe;
     public string pickUpObjectName;
+    public int collectibleScoreValue = 0;
 
     //Indexes for Different Objects
     public int keyIndex;
@@ -91,6 +93,10 @@ public class PickUpObject : MonoBehaviour
         {
             case ObjectFunctions.Key:
                 myManager.CollectKey(keyIndex);
+                if (myManager.currentChallenge != null)
+                {
+                    myManager.playerScore += Mathf.RoundToInt(myManager.remainingTime);
+                }
                 UpdateTextNotAvailable();
                 Destroy(this.gameObject);
                 myManager.TeleportPlayerToHub();
@@ -102,6 +108,7 @@ public class PickUpObject : MonoBehaviour
 
             case ObjectFunctions.Collectible:
                 myManager.CollectColectible(collectibleIndex);
+                myManager.playerScore += collectibleScoreValue;
                 UpdateTextNotAvailable();
                 Destroy(this.gameObject);
                 break;
