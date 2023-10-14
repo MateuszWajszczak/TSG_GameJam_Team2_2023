@@ -8,6 +8,7 @@ using static PickUpObject;
 public class CoreManager : MonoBehaviour
 {
     public FlashlightSystem playerToggle = null;
+    public bool flashlightCollected = false;
     public float darkBatteryStart;
     public float darkBatteryCurrent;
     public float batteryConsumption;
@@ -22,8 +23,8 @@ public class CoreManager : MonoBehaviour
     [SerializeField] private GameObject countdowntImage;
 
     //Keys and Collectibles
-    private Dictionary<int, bool> keyStatus = new Dictionary<int, bool>();
-    private Dictionary<int, bool> collectibleStatus = new Dictionary<int, bool>();
+    public Dictionary<int, bool> keyStatus = new Dictionary<int, bool>();
+    public Dictionary<int, bool> collectibleStatus = new Dictionary<int, bool>();
 
     //Challenge Rooms
     public ChallengeObject currentChallenge = null;
@@ -34,6 +35,7 @@ public class CoreManager : MonoBehaviour
 
     //Player and transforms, set manually
     public GameObject myPlayerObject;
+    public GameObject myPlayerFlashlight;
     public Transform hubStartPosition;
 
     // Start is called before the first frame update
@@ -103,6 +105,10 @@ public class CoreManager : MonoBehaviour
                     break;
 
                 case ObjectFunctions.Collectible:
+                    objecttextMeshProUGUI.text = "Collect:" + " " + currentObject.pickUpObjectName + " [E]";
+                    break;
+
+                case ObjectFunctions.Flashlight:
                     objecttextMeshProUGUI.text = "Collect:" + " " + currentObject.pickUpObjectName + " [E]";
                     break;
             }
@@ -197,5 +203,11 @@ public class CoreManager : MonoBehaviour
         {
             TeleportPlayerToHub();
         }
+    }
+
+    public void EnableFlashlight()
+    {
+        flashlightCollected = true;
+        myPlayerFlashlight.SetActive(true);
     }
 }

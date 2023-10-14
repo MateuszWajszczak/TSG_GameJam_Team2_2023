@@ -11,6 +11,7 @@ public class PickUpObject : MonoBehaviour
         Button,
         Collectible,
         Challenge,
+        Flashlight,
         // Add more values as needed
     }
 
@@ -99,6 +100,11 @@ public class PickUpObject : MonoBehaviour
 
             case ObjectFunctions.Collectible:
                 myManager.CollectColectible(collectibleIndex);
+                UpdateTextNotAvailable();
+                Destroy(this.gameObject);
+                break;
+            case ObjectFunctions.Flashlight:
+                myManager.EnableFlashlight();
                 UpdateTextNotAvailable();
                 Destroy(this.gameObject);
                 break;

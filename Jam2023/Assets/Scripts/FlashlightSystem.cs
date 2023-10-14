@@ -41,7 +41,7 @@ public class FlashlightSystem : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && myManager.flashlightCollected)
         {
             if (isDark)
             {
